@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  pytest-runner:
+    build: .
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: pytest
+
+  method-runner:
+    build: .
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python run_method.py

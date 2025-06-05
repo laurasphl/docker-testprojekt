@@ -1,5 +1,4 @@
-# Diese Datei führt Methode mit einem Beispielinput aus und druckt das Ergebnis.
-# run_method.py
+# führt Methode mit einem Beispielinput aus und druckt das Ergebnis.
 from src.find_unique import find_unique_element
 
 # Beispielinput

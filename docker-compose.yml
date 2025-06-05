@@ -1,16 +1,18 @@
-version: '3.9'
+# „Erstellen Sie eine Docker-Compose-Datei mit zwei Services, die die Methode und die Tests ausführen.“
 
 services:
+  # Erster Container: Führt automatisch pytest aus
   pytest-runner:
-    build: .
+    build: .                 # Benutze das Dockerfile im aktuellen Verzeichnis
     volumes:
-      - .:/app
-    working_dir: /app
-    command: pytest
+      - .:/app               # Binde das aktuelle Projektverzeichnis in den Container ein
+    working_dir: /app        # Setze das Arbeitsverzeichnis im Container auf /app
+    command: pytest          # Führe im Container den Befehl 'pytest' aus
 
+  # Zweiter Container: Führt ein Beispiel mit der Methode aus
   method-runner:
-    build: .
+    build: .                 # Nutzt dasselbe Dockerfile
     volumes:
-      - .:/app
-    working_dir: /app
-    command: python run_method.py
+      - .:/app               # Projektordner wird wieder eingebunden
+    working_dir: /app        # Arbeitsverzeichnis bleibt gleich
+    command: python run_method.py  # Führt das Skript aus, das die Methode testet

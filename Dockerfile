@@ -9,6 +9,8 @@ RUN pip install --upgrade pip
 
 # Notwendige Pakete installieren
 RUN pip install numpy pandas matplotlib seaborn
+RUN pip install numpy pandas matplotlib seaborn pytest
+
 
 # (Optional) Startbefehl oder CMD-Zeile hier ergänzen, z. B. ein Skript ausführen
 # CMD ["python", "main.py"]

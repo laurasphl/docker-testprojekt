@@ -1,12 +1,14 @@
+# Basis-Image mit Python
 FROM python:3.11-slim
 
-# Lege das Arbeitsverzeichnis im Container auf /app fest → alle weiteren Befehle und Pfade beziehen sich auf /app
+# Verzeichnis im Container anlegen
 WORKDIR /app
 
-# Aktualisiere pip (den Python-Paketmanager) auf neueste Version
-# Installiere die benötigten Python-Bibliotheken: - numpy, pandas, matplotlib, seaborn (laut Aufgabe c) - pytest (für die automatisierten Tests in Aufgabe a und d)
-RUN pip install --upgrade pip && \
-    pip install numpy pandas matplotlib seaborn pytest
+# Sicherstellen, dass pip aktuell ist
+RUN pip install --upgrade pip
 
-# Erweitere den Python-Modulpfad um das Verzeichnis /app/src → dadurch kann man z. B. "from src.find_unique import ..." machen, obwohl src nicht im Standardpfad liegt
-ENV PYTHONPATH="${PYTHONPATH}:/app/src"
+# Notwendige Pakete installieren
+RUN pip install numpy pandas matplotlib seaborn
+
+# (Optional) Startbefehl oder CMD-Zeile hier ergänzen, z. B. ein Skript ausführen
+# CMD ["python", "main.py"]
